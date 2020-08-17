@@ -9,6 +9,18 @@ const StyledPricing = styled.div`
     background-position: top;
     background-size: cover;
     box-shadow: inset 0px 10px 20px -5px rgba(0,0,0,0.75);
+    position: relative;
+    z-index: 0;
+    &::after {
+        content: "";
+        background: #00000044;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+    }
 `;
 const PricingContainer = styled.div`
     margin: 0 auto;
@@ -17,6 +29,7 @@ const PricingContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 40px;
     max-width: 1200px;
+    z-index: 1;
     @media (max-width: 767px)
         {
             grid-template-columns: auto;
@@ -136,7 +149,7 @@ const About = () => (
                 <Title>
                     Hamulce
                </Title>
-               <SubTitle>V-Breake/U-Brake/Cantilever/Szczękowe:</SubTitle>
+                <SubTitle>V-Breake/U-Brake/Cantilever/Szczękowe:</SubTitle>
                 <List>
                     <Item>
                         <Position>Regulacja hamulca</Position>
