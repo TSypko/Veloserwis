@@ -1,7 +1,3 @@
-
-
-
-
 import React from "react";
 import styled from "styled-components";
 import background from "../images/background.jpg";
@@ -23,6 +19,7 @@ const DarkenHero = styled.div`
     font-family: 'Montserrat', sans-serif;
 `;
 const Button = styled.button`
+    margin-top: 50px;
     padding: 10px 30px;
     background: #00000055;
     color: var(--secondary);
@@ -32,10 +29,9 @@ const Button = styled.button`
     transition: 300ms;
     animation: pulse 2s infinite;
     &:hover {
-        transform: scale(1.2);
+        animation-play-state: paused;
         color: var(--primary);
         font-weight: 700;
-        animation: stop;
     }
     @keyframes pulse {
         0%   { transform: scale(1); }
@@ -43,21 +39,39 @@ const Button = styled.button`
         100% { transform: scale(1); }
 }
 `;
-const Header = styled.h1`
+const HeaderContainer = styled.div`
     padding: 20px 40px;
     background: #00000033;
-    border-radius: 5px;  
-    text-align: center;
     letter-spacing: 1px;
+    text-align: center;
+    font-size: 36px;
+    border-radius: 5px;
+`;
+const Header = styled.h1`
+    font-weight: 500;
+    color: var(--primary);
+    font-size: 48px;
+`;
+const HeaderCaption = styled.span`
+    font-weight: 300; 
     color: var(--secondary);
-    margin: 50px;
 `;
 
 const Hero = () => (
     <StyledHero>
         <DarkenHero>
-            <Header>Najlepszy serwis rowerowy w Twoim mieście</Header>
-            <Button as="a" href="/">Poznaj nas</Button>
+            <HeaderContainer>
+            <HeaderCaption>
+                Najlepszy
+            </HeaderCaption>
+            <Header>
+                serwis rowerowy
+            </Header>
+            <HeaderCaption>
+                w Twoim mieście
+            </HeaderCaption>
+            </HeaderContainer>
+            <Button as="a" href="#about">Poznaj nas</Button>
         </DarkenHero>
     </StyledHero>
 );
