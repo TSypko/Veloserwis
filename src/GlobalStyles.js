@@ -4,6 +4,8 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     box-sizing: border-box;
+    --primaryColor: #FF5151;
+    --secondaryColor: #EFE;
   }
   *, ::after, ::before {
         box-sizing: inherit;
@@ -13,5 +15,5 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 16px; 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
 }`
