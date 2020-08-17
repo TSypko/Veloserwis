@@ -7,9 +7,11 @@ export const GlobalStyles = createGlobalStyle`
     --primary: #FF5151;
     --primaryHalfOpacity: #FF5151CC;
     --secondary: #EFE;
+    --secondaryDarken: #CCC;
   }
   *, ::after, ::before {
         box-sizing: inherit;
+        scroll-behavior: smooth;
   }
   body {
     font-family: "Lato", sans-serif;
