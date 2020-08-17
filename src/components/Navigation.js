@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Nav = styled.nav`
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--primaryColor);
     color: var(--secondaryColor);
+    max-width: 1200px;
 `;
 
 const Navigation = ({ children }) => (
