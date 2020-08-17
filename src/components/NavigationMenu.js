@@ -10,7 +10,8 @@ const List = styled.ul`
 
 const ListItem = styled.li`
     padding: 0px 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-size: 20px;
     font-weight: 300;
 `;
 const ListLink = styled.a`

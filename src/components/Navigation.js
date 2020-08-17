@@ -6,7 +6,7 @@ const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--secondaryColor);
+    color: var(--secondary);
     max-width: 1200px;
 `;
 
