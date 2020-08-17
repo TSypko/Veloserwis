@@ -1,14 +1,12 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const StyledWrapper = styled.div`
-     ${({ nav }) => nav && css`
        background: var(--primaryColor);
-    `}        
 `;
 
-const Wrapper = ({ children, isRed }) => (
-    <StyledWrapper nav={isRed}>
+const Wrapper = ({ children }) => (
+    <StyledWrapper>
         {children}
     </StyledWrapper>
 );
