@@ -7,6 +7,14 @@ const Image = styled.img`
     margin: 10px;
     width: 50px;
     filter: brightness(0%) invert(100%);
+    @media (max-width: 560px)
+        {   
+            width: 40px;
+        }
+    @media (max-width: 320px)
+        {   
+            width: 30px;
+        }
 `;
 
 const Logo = () => (

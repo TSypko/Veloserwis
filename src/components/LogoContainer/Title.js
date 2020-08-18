@@ -6,6 +6,15 @@ const TitleName = styled.div`
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    @media (max-width: 560px)
+        {   
+            font-size: 24px;
+        }
+
+    @media (max-width: 320px)
+        {   
+            font-size: 20px;
+        }
 `;
 
 const Title = ({ title }) => (

@@ -9,6 +9,10 @@ const StyledButton = styled.button`
     @media (min-width: 990px) {
         display: none;
     }
+    @media (max-width: 360px)
+    {   
+        margin: -10px 5px 0 0px;
+    }
 `;
 
 const Label = styled.span`
@@ -32,6 +36,11 @@ const Burger = styled.span`
     background-color: var(--secondary);
     border-radius: 5px;
     transition: 0.5s;
+    @media (max-width: 360px) {   
+        width: 30px;
+        height: 3px;
+
+    }
    
     &::before {
         content: '';
@@ -45,12 +54,24 @@ const Burger = styled.span`
         position: absolute;
         left: 0;
 
+        @media (max-width: 360px) {   
+            width: 30px;
+            height: 3px;
+            transform: translateY(-10px);
+        }
+
         ${({ open }) => open && css`
             transform: rotate(45deg) translate(-72px, 72px);
-        }       
-    `
+
+            @media (max-width: 360px) 
+            {   
+                transform: rotate(45deg) translate(-72px, 72px)
+            }
+        `
+        }
     }
-    }
+       
+  
 
     &::after {
         content: '';
@@ -64,11 +85,22 @@ const Burger = styled.span`
         position: absolute;
         left: 0;
 
+        @media (max-width: 360px)
+        {   
+            width: 30px;
+            height: 3px;
+            transform: translateY(10px);
+        }
+
         ${({ open }) => open && css`
             transform: rotate(-45deg) translate(-72px, -72px);
-        }       
-    `
-    }
+            @media (max-width: 360px)
+            {   
+                transform: rotate(-45deg) translate(-72px, -72px);
+            }
+              
+    ` 
+        }
     }
     
     ${({ open }) => open && css`
@@ -77,6 +109,7 @@ const Burger = styled.span`
         
     `
     }
+    
 `;
 
 const BurgerButton = () => {

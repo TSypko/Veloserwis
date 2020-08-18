@@ -30,8 +30,9 @@ const PricingContainer = styled.div`
     grid-gap: 40px;
     max-width: 1200px;
     z-index: 1;
-    @media (max-width: 767px)
+    @media (max-width: 768px)
         {
+            padding: 10px 20px;
             grid-template-columns: auto;
         }
 `;
@@ -55,12 +56,24 @@ const Item = styled.li`
    display: flex;
    align-items: baseline;
 
+   @media (max-width: 380px)
+        {   
+            align-items: center;
+        }
    &::after {
+
         content: "";
         border-bottom: 1px dotted;
         flex-grow: 1;
         order: 2;
         margin: 0 2px;
+
+        @media (max-width: 380px)
+        {   
+            border-bottom: none;
+            align-items: center;
+        }
+        
    }
 `;
 const Position = styled.div`

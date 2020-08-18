@@ -46,11 +46,20 @@ const HeaderContainer = styled.div`
     text-align: center;
     font-size: 36px;
     border-radius: 15px;
+    @media (max-width: 560px)
+    {   
+        padding: 10px 20px;
+        font-size: 20px;
+    }
 `;
 const Header = styled.h1`
     font-weight: 500;
     color: var(--primary);
     font-size: 48px;
+    @media (max-width: 560px)
+    {   
+        font-size: 32px;
+    }
 `;
 const HeaderCaption = styled.span`
     font-weight: 300; 

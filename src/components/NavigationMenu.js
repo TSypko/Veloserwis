@@ -7,6 +7,22 @@ const List = styled.ul`
     justify-content: flex-end;
     padding: 0px 50px;
     margin: 0;
+    @media (max-width: 990px) {
+        position: fixed;
+        top: 50px;
+        right: 0px;
+        width: 50%;
+        padding: 20px;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        line-height: 2;
+        transform: translateX(50%);
+}
 `;
 
 const ListItem = styled.li`
@@ -44,7 +60,7 @@ const NavigationList = () => (
             <ListLink href="#">start</ListLink>
         </ListItem>
         <ListItem>
-            <ListLink href="#">o nas</ListLink>
+            <ListLink href="#">o&nbsp;nas</ListLink>
         </ListItem>
         <ListItem>
             <ListLink href="#">cennik</ListLink>

@@ -5,8 +5,8 @@ const style = {
     width: "100%",
     height: "400px"
     }
-    const containerStyle = {
-        position: 'relative',  
+    const containerStyle = { 
+        position: 'relative',
         width: '100%',
         height: '100%'
       }
