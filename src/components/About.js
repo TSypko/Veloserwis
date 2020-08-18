@@ -33,6 +33,7 @@ const Card = styled.div`
 `;
 const Header = styled.h2`
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
 `;
 const Paragraph = styled.p`
 
