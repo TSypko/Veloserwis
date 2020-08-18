@@ -5,6 +5,7 @@ const StyledWrapper = styled.div`
        background: var(--primaryHalfOpacity);
        width: 100%;
        position: fixed;
+       z-index: 1;
 `;
 
 const Wrapper = ({ children }) => (
