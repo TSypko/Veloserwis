@@ -42,6 +42,7 @@ const Card = styled.div`
     box-shadow: 0px 0px 5px 1px #999;
 `;
 const Title = styled.h3`
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     text-align: center;
 `;
