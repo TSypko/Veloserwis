@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import MapElement from "./Map"
+import MapElement from "./Map";
+import { useFetch } from "../useFetch";
 
 const StyledContact = styled.div`
     background: var(--secondaryDarken);
@@ -81,21 +82,54 @@ const ContactItem = ({ image, header, text, textContinous }) => (
     </Item>
 )
 
-const Contact = () => (
-    <StyledContact>
-        <ContactContainer id="contact">
-            <MapContainer>
-                <MapElement />
-            </MapContainer>
-            <ContactItems>
-                <ContactItem image="📧" header="E-mail" text="veloserwis@testwpapi.com" />
-                <ContactItem image="🏬" header="Adres" text="Rzeszów" textContinous="ul. Owocowego Wtorku 45" />
-                <ContactItem image="📱" header="Telefon" text="365-445-778" />
-                <ContactItem image="📅" header="Godziny otwarcia" text="Pon - Pt: 10 - 18" textContinous="Sobota: 10 - 14" />
-            </ContactItems>
-        </ContactContainer>
-    </StyledContact >
-);
+const Contact = () => {
+    const contactData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/6");
+
+    useEffect(() => {
+        let isActive = true;
+        if (contactData.response && isActive) {
+            const contactDataDetails = contactData.response;
+            setEmail(contactDataDetails.acf.email);
+            setAdress(contactDataDetails.acf.adres);
+            setAdressMore(contactDataDetails.acf.adres_cd);
+            setPhone(contactDataDetails.acf.telefon);
+            setHours(contactDataDetails.acf.godziny_otwarcia);
+            setHoursMore(contactDataDetails.acf.godziny_otwarcia_cd);
+        }
+        else if (contactData.error) {
+            setEmail(contactData.error);
+            setAdress(contactData.error);
+            setAdressMore(contactData.error);
+            setPhone(contactData.error);
+            setHours(contactData.error);
+            setHoursMore(contactData.error);
+        }
+        return () => isActive = false;
+    }, [contactData.response, contactData.error]);
+
+    const [email, setEmail] = useState(contactData.loading);
+    const [adress, setAdress] = useState(contactData.loading);
+    const [adressMore, setAdressMore] = useState(contactData.loading);
+    const [phone, setPhone] = useState(contactData.loading);
+    const [hours, setHours] = useState(contactData.loading);
+    const [hoursMore, setHoursMore] = useState(contactData.loading);
+
+    return (
+        <StyledContact>
+            <ContactContainer id="contact">
+                <MapContainer>
+                    <MapElement />
+                </MapContainer>
+                <ContactItems>
+                    <ContactItem image="📧" header="E-mail" text={email} />
+                    <ContactItem image="🏬" header="Adres" text={adress} textContinous={adressMore} />
+                    <ContactItem image="📱" header="Telefon" text={phone} />
+                    <ContactItem image="📅" header="Godziny otwarcia" text={hours} textContinous={hoursMore} />
+                </ContactItems>
+            </ContactContainer>
+        </StyledContact >
+    );
+}
 
 export default Contact;
 
