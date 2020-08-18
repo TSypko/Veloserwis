@@ -12,6 +12,7 @@ import Pricing from "./components/Pricing"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import SocialInfo from "./components/SocialInfo"
+import BurgerButton from "./components/Burger"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Navigation>
           <LogoContainer />
           <NavigationMenu />
+          <BurgerButton />
         </Navigation>
       </Wrapper>
       <Main>
