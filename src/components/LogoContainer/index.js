@@ -6,7 +6,7 @@ import Title from "./Title"
 const Container = styled.div`
     display: flex;
     align-items: center;
-    padding: 10px 50px;
+    padding: 0px 50px;
     text-decoration: none;
     color: inherit;
 `;
