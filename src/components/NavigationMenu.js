@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const List = styled.ul`
     list-style-type: none;
@@ -7,6 +7,7 @@ const List = styled.ul`
     justify-content: flex-end;
     padding: 0px 50px;
     margin: 0;
+
     @media (max-width: 990px) {
         position: fixed;
         top: 50px;
@@ -22,7 +23,14 @@ const List = styled.ul`
         pointer-events: none;
         line-height: 2;
         transform: translateX(50%);
-}
+    }
+
+    ${({ open }) => open && css`
+        opacity: 1;
+        pointer-events: unset;
+        transform: unset;
+    `
+    }
 `;
 
 const ListItem = styled.li`
@@ -54,7 +62,7 @@ const ListLink = styled.a`
     }
 `;
 
-const NavigationList = () => (
+const NavigationMenu = () => (
     <List>
         <ListItem>
             <ListLink href="#">start</ListLink>
@@ -71,4 +79,4 @@ const NavigationList = () => (
     </List>
 );
 
-export default NavigationList;
+export default NavigationMenu;
