@@ -45,7 +45,7 @@ const HeaderContainer = styled.div`
     letter-spacing: 1px;
     text-align: center;
     font-size: 36px;
-    border-radius: 5px;
+    border-radius: 15px;
 `;
 const Header = styled.h1`
     font-weight: 500;
