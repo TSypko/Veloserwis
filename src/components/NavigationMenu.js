@@ -73,7 +73,7 @@ const NavigationMenu = ({ openMenu, isOpened }) => (
             <ListLink onClick={openMenu} href="#">start</ListLink>
         </ListItem>
         <ListItem>
-            <ListLink onClick={openMenu} href="about">o&nbsp;nas</ListLink>
+            <ListLink onClick={openMenu} href="#about">o&nbsp;nas</ListLink>
         </ListItem>
         <ListItem>
             <ListLink onClick={openMenu} href="#pricing">cennik</ListLink>
