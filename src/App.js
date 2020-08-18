@@ -7,6 +7,11 @@ import NavigationMenu from "./components/NavigationMenu"
 import Main from "./components/Main"
 import Section from "./components/Section"
 import Hero from "./components/Hero"
+import About from "./components/About"
+import Pricing from "./components/Pricing"
+import Contact from "./components/Contact"
+import Footer from "./components/Footer"
+import SocialInfo from "./components/SocialInfo"
 
 function App() {
   return (
@@ -20,11 +25,23 @@ function App() {
       </Wrapper>
       <Main>
         <Section
-        body={
-          <Hero/>
-        }
+          body={<Hero />}
+        />
+        <Section
+          body={<About />}
+        />
+        <Section
+          body={<Pricing />}
+        />
+        <Section
+          body={<Contact />}
         />
       </Main>
+      <Footer>
+        <Section
+          body={<SocialInfo />}
+        />
+      </Footer>
     </>
   );
 }
