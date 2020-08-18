@@ -55,7 +55,7 @@ const ContactParapgraph = styled.p`
     margin: 5px;
 `;
 
-const ContactItem = ({image, header, text, textCountinous}) => (
+const ContactItem = ({image, header, text, textCountinous: textContinous}) => (
     <Item>
         <ContactImage>
             {image}
@@ -67,7 +67,7 @@ const ContactItem = ({image, header, text, textCountinous}) => (
             {text}
         </ContactParapgraph>
         <ContactParapgraph>
-            {textCountinous}
+            {textContinous}
         </ContactParapgraph>
     </Item>
 )
@@ -80,9 +80,9 @@ const Contact = () => (
             </MapContainer>
             <ContactItems>
             <ContactItem image="📧" header="E-mail" text="veloserwis@testwpapi.com"/>
-            <ContactItem image="🏬" header="Adres:" text="Rzeszów" textCountinous="ul. Owocowego Wtorku 45"/>
-            <ContactItem image="📱" header="Telefon:" text="365-445-778"/>
-            <ContactItem image="📅" header="Godziny otwarcia:" text="Pon - Pt: 10 - 18" textCountinous="Sobota: 10 - 14"/>
+            <ContactItem image="🏬" header="Adres" text="Rzeszów" textContinous="ul. Owocowego Wtorku 45"/>
+            <ContactItem image="📱" header="Telefon" text="365-445-778"/>
+            <ContactItem image="📅" header="Godziny otwarcia" text="Pon - Pt: 10 - 18" textContinous="Sobota: 10 - 14"/>
             </ContactItems>
         </ContactContainer>
     </StyledContact >
