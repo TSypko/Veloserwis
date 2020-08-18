@@ -5,11 +5,12 @@ const List = styled.ul`
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    padding: 10px 50px;
+    padding: 0px 50px;
+    margin: 0;
 `;
 
 const ListItem = styled.li`
-    padding: 0px 20px;
+    padding: 15px 20px 0px 20px;
     letter-spacing: 1px;
     font-size: 20px;
     font-weight: 300;
@@ -18,14 +19,22 @@ const ListLink = styled.a`
     text-decoration: none;
     color: inherit;
     padding: 5px;
-    &:hover {
+    &::after {
+        content: "";
+        display: block;
+        width: 0;
+        transition: width .3s;
+    }
+    &:hover::after {
+        width: 110%;
         color: #FFF;
-        border-bottom: 1px solid white;
+        padding-top: 5px;
+        margin-bottom: -7px;
+        border-bottom: 2px solid white;
     }
     &:active {
         color: #222;
         font-weight: 500;
-        border-bottom: 1px solid #222;
     }
 `;
 
