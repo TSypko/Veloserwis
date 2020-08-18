@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
@@ -112,11 +112,7 @@ const Burger = styled.span`
     
 `;
 
-const BurgerButton = () => {
-    const [isOpened, setIsOpened] = useState(false);
-    const openMenu = () => {
-        setIsOpened(!isOpened);
-    };
+const BurgerButton = ({openMenu, isOpened}) => {
 
     return (
         <StyledButton onClick={openMenu}>

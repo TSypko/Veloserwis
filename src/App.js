@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GlobalStyles } from './GlobalStyles';
 import Wrapper from "./components/Wrapper"
 import LogoContainer from "./components/LogoContainer/index"
@@ -15,14 +15,20 @@ import SocialInfo from "./components/SocialInfo"
 import BurgerButton from "./components/Burger"
 
 function App() {
+  const [isOpened, setIsOpened] = useState(false);
+
+    const openMenu = () => {
+        setIsOpened(!isOpened);
+    };
+
   return (
     <>
       <GlobalStyles />
       <Wrapper>
         <Navigation>
           <LogoContainer />
-          <NavigationMenu />
-          <BurgerButton />
+          <NavigationMenu openMenu={openMenu} isOpened={isOpened} />
+          <BurgerButton openMenu={openMenu} isOpened={isOpened} />
         </Navigation>
       </Wrapper>
       <Main>

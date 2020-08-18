@@ -12,7 +12,7 @@ const List = styled.ul`
         position: fixed;
         top: 50px;
         right: 0px;
-        width: 50%;
+        width: 70%;
         padding: 20px;
         background: black;
         display: flex;
@@ -23,13 +23,13 @@ const List = styled.ul`
         pointer-events: none;
         line-height: 2;
         transform: translateX(50%);
-    }
 
-    ${({ open }) => open && css`
-        opacity: 1;
-        pointer-events: unset;
-        transform: unset;
+        ${({ open }) => open && css`
+            opacity: 1;
+            pointer-events: unset;
+            transform: unset;
     `
+    }
     }
 `;
 
@@ -38,6 +38,11 @@ const ListItem = styled.li`
     letter-spacing: 1px;
     font-size: 20px;
     font-weight: 300;
+
+    @media (max-width: 990px) {
+        text-transform: uppercase;
+    }
+
 `;
 const ListLink = styled.a`
     text-decoration: none;
@@ -62,19 +67,19 @@ const ListLink = styled.a`
     }
 `;
 
-const NavigationMenu = () => (
-    <List>
+const NavigationMenu = ({ openMenu, isOpened }) => (
+    <List open={isOpened}>
         <ListItem>
-            <ListLink href="#">start</ListLink>
+            <ListLink onClick={openMenu} href="#">start</ListLink>
         </ListItem>
         <ListItem>
-            <ListLink href="#">o&nbsp;nas</ListLink>
+            <ListLink onClick={openMenu} href="about">o&nbsp;nas</ListLink>
         </ListItem>
         <ListItem>
-            <ListLink href="#">cennik</ListLink>
+            <ListLink onClick={openMenu} href="#pricing">cennik</ListLink>
         </ListItem>
         <ListItem>
-            <ListLink href="#">kontakt</ListLink>
+            <ListLink onClick={openMenu} href="#contact">kontakt</ListLink>
         </ListItem>
     </List>
 );
