@@ -6,8 +6,8 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     --primary: #FF5151;
     --primaryHalfOpacity: #FF5151CC;
-    --secondary: #EFE;
-    --secondaryDarken: #CCC;
+    --secondary: #fff;
+    --secondaryDarken: #eee;
   }
   *, ::after, ::before {
         box-sizing: inherit;
