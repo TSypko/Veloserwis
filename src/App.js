@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { GlobalStyles } from './GlobalStyles';
 import Wrapper from "./components/Wrapper";
 import LogoContainer from "./components/LogoContainer/index";
@@ -22,27 +22,43 @@ function App() {
     setIsOpened(!isOpened);
   };
 
+  const [onScroll, setOnScroll] = useState(false);
+  const navRef = useRef(null);
+
+  const onScrollNavStyleChange = () => {
+    if (window.pageYOffset > navRef.current) {
+      setOnScroll(true)
+    } else { setOnScroll(false) }
+  };
+  window.onscroll = onScrollNavStyleChange;
+
   const wpMainData = useFetch("https://tomek86.000webhostapp.com/wp-json/");
 
   const setDocumentHead = () => {
     if (wpMainData.response) {
-       document.title = wpMainData.response.name; 
-       document.head.querySelector('meta[name="description"]').content = wpMainData.response.description;
-      };
+      document.title = wpMainData.response.name;
+      document.head.querySelector('meta[name="description"]').content = wpMainData.response.description;
+    };
   };
   setDocumentHead();
 
   return (
     <>
       <GlobalStyles />
-      <Wrapper>
-        <Navigation>
-          <LogoContainer />
-          <NavigationMenu openMenu={openMenu} isOpened={isOpened} />
-          <BurgerButton openMenu={openMenu} isOpened={isOpened} />
+      <Wrapper isScrolled={onScroll}>
+        <Navigation ref={navRef}>
+          <LogoContainer isScrolled={onScroll}/>
+          <NavigationMenu
+            openMenu={openMenu}
+            isOpened={isOpened}
+            isScrolled={onScroll} />
+          <BurgerButton
+            openMenu={openMenu}
+            isOpened={isOpened}
+            isScrolled={onScroll} />
         </Navigation>
       </Wrapper>
-      <Main>
+      <Main >
         <Section
           body={<Hero />}
         />

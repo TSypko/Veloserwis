@@ -2,16 +2,28 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
-    margin: 20px;
+    margin: 10px 80px 20px 20px;
     background-color: transparent;
     border: none;
     outline: none;
+    transition: 0.5s;
+
+    ${({ scroll }) => scroll && css`
+        margin: 10px;
+        `
+        }
+
     @media (min-width: 990px) {
         display: none;
     }
     @media (max-width: 360px)
     {   
+        margin: -10px 25px 0 0px;
+
+        ${({ scroll }) => scroll && css`
         margin: -10px 5px 0 0px;
+        `
+        }
     }
 `;
 
@@ -112,10 +124,10 @@ const Burger = styled.span`
     
 `;
 
-const BurgerButton = ({openMenu, isOpened}) => {
+const BurgerButton = ({openMenu, isOpened, isScrolled}) => {
 
     return (
-        <StyledButton onClick={openMenu}>
+        <StyledButton scroll={isScrolled} onClick={openMenu}>
             <Label>Open/close menu</Label>
             <Burger open={isOpened} />
         </StyledButton>

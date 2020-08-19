@@ -5,8 +5,18 @@ const List = styled.ul`
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    padding: 0px 50px;
+    padding: 70px 100px;
     margin: 0;
+    transition: 0.5s;
+
+    ${({ scroll }) => scroll && css`
+        list-style-type: none;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0px 50px;
+        margin: 0;
+    `
+    }
 
     @media (max-width: 990px) {
         position: fixed;
@@ -67,8 +77,10 @@ const ListLink = styled.a`
     }
 `;
 
-const NavigationMenu = ({ openMenu, isOpened }) => (
-    <List open={isOpened}>
+
+
+const NavigationMenu = ({ openMenu, isOpened, isScrolled }) => (
+    <List open={isOpened} scroll={isScrolled}>
         <ListItem>
             <ListLink onClick={openMenu} href="#">start</ListLink>
         </ListItem>

@@ -1,15 +1,21 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const StyledWrapper = styled.div`
-       background: var(--primaryHalfOpacity);
+       background: transparent;
        width: 100%;
        position: fixed;
        z-index: 1;
+       transition: 0.5s;
+
+       ${({ scroll }) => scroll && css`
+       background: var(--primaryHalfOpacity);
+    `
+    }
 `;
 
-const Wrapper = ({ children }) => (
-    <StyledWrapper>
+const Wrapper = ({ children, isScrolled }) => (
+    <StyledWrapper scroll={isScrolled}>
         {children}
     </StyledWrapper>
 );
