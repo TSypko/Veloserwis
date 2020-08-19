@@ -25,7 +25,6 @@ function App() {
   const wpMainData = useFetch("http://localhost/RestAPITest/wp-json/");
 
   const setDocumentHead = () => {
-    console.log(wpMainData);
     if (wpMainData.response) {
        document.title = wpMainData.response.name; 
        document.head.querySelector('meta[name="description"]').content = wpMainData.response.description;
