@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import pricingImage from "../images/pricing.jpg"
+import pricingImage from "../images/pricing.jpg";
+import { useFetch } from "../useFetch";
 
 const StyledPricing = styled.div`
     background: url(${pricingImage});
@@ -24,15 +25,20 @@ const StyledPricing = styled.div`
 `;
 const PricingContainer = styled.div`
     margin: 0 auto;
-    padding: 100px 70px;
+    padding: 100px 50px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
     max-width: 1200px;
     z-index: 1;
     @media (max-width: 768px)
         {
-            padding: 10px 20px;
+            padding: 50px 30px;
+            grid-template-columns: auto;
+        }
+    @media (max-width: 360px)
+        {
+            padding: 30px 10px;
             grid-template-columns: auto;
         }
 `;
@@ -92,125 +98,153 @@ const SubTitle = styled.span`
    font-weight: 700;
 `;
 
-const About = () => (
-    <StyledPricing>
-        <PricingContainer id="pricing">
-            <Card>
+const About = () => {
+
+    const drivePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/39");
+    const [drivePrices, setDrivePrices] = useState([] || drivePriceData.loading);
+
+    const gearPriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/88");
+    const [gearPrices, setGearPrices] = useState([] || gearPriceData.loading);
+
+    const rimBrakePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/136");
+    const [rimBrakePrices, setRimBrakePrices] = useState([] || rimBrakePriceData.loading);
+
+    const discBrakePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/91");
+    const [discBrakePrices, setDiscBrakePrices] = useState([] || discBrakePriceData.loading);
+
+    useEffect(() => {
+        let isActive = true;
+        if (drivePriceData.response && isActive) {
+            const details = drivePriceData.response.acf;
+            const detailsList = Object.values(details);
+            const detailsToRender = Array.from(detailsList);
+            setDrivePrices(detailsToRender.filter(item => item.nazwa !== ""));
+        }
+        else if (drivePriceData.error) {
+            setDrivePrices(drivePriceData.error);
+
+        }
+        return () => isActive = false;
+    }, [drivePriceData.response, drivePriceData.error]);
+
+    useEffect(() => {
+        let isActive = true;
+        if (gearPriceData.response && isActive) {
+            const details = gearPriceData.response.acf;
+            const detailsList = Object.values(details);
+            const detailsToRender = Array.from(detailsList);
+            setGearPrices(detailsToRender.filter(item => item.nazwa !== ""));
+        }
+        else if (gearPriceData.error) {
+            setGearPrices(gearPriceData.error);
+
+        }
+        return () => isActive = false;
+    }, [gearPriceData.response, gearPriceData.error]);
+
+    useEffect(() => {
+        let isActive = true;
+        if (rimBrakePriceData.response && isActive) {
+            const details = rimBrakePriceData.response.acf;
+            const detailsList = Object.values(details);
+            const detailsToRender = Array.from(detailsList);
+            setRimBrakePrices(detailsToRender.filter(item => item.nazwa !== ""));
+        }
+        else if (rimBrakePriceData.error) {
+            setRimBrakePrices(rimBrakePriceData.error);
+
+        }
+        return () => isActive = false;
+    }, [rimBrakePriceData.response, rimBrakePriceData.error]);
+
+    useEffect(() => {
+        let isActive = true;
+        if (discBrakePriceData.response && isActive) {
+            const details = discBrakePriceData.response.acf;
+            const detailsList = Object.values(details);
+            const detailsToRender = Array.from(detailsList);
+            setDiscBrakePrices(detailsToRender.filter(item => item.nazwa !== ""));
+        }
+        else if (discBrakePriceData.error) {
+            setDiscBrakePrices(discBrakePriceData.error);
+
+        }
+        return () => isActive = false;
+    }, [discBrakePriceData.response, discBrakePriceData.error]);
+
+    return (
+        <StyledPricing>
+            <PricingContainer id="pricing">
+                <Card>
+                    <Title>
+                        Napęd
+                    </Title>
+                    <List>
+                        {drivePrices.map(item =>
+                            <Item key={item.nazwa}>
+                                <Position>
+                                    {item.nazwa}
+                                </Position>
+                                <Price>
+                                    {item.cena}
+                                </Price>
+                            </Item>
+                        )}
+                    </List>
+                </Card>
+                <Card>
                 <Title>
-                    Napęd
-               </Title>
-                <List>
-                    <Item>
-                        <Position>Wymiana, naprawa łańcucha</Position>
-                        <Price>10zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Zakucie, skrócenie łańcucha</Position>
-                        <Price>5zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Smarowanie łańcucha</Position>
-                        <Price>2zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana kasety lub wolnobiegu</Position>
-                        <Price>10zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana korby</Position>
-                        <Price>15zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana pedałów</Position>
-                        <Price>5zł</Price>
+                        Przerzutki
+                     </Title>
+                    <List>
+                        {gearPrices.map(item =>
+                            <Item key={item.nazwa}>
+                                <Position>
+                                    {item.nazwa}
+                                </Position>
+                                <Price>
+                                    {item.cena}
+                                </Price>
+                            </Item>
+                        )}
+                    </List>
+                </Card>
+                <Card>
+                    <Title>
+                        Hamulce
+                    </Title>
+                    <SubTitle>V-Breake/U-Brake/Cantilever/Szczękowe:</SubTitle>
+                    <List>
+                        {rimBrakePrices.map(item =>
+                            <Item key={item.nazwa}>
+                                <Position>
+                                    {item.nazwa}
+                                </Position>
+                                <Price>
+                                    {item.cena}
+                                </Price>
+                            </Item>
+                        )}
+                    </List>
+                    <SubTitle>Tarczowe hydrauliczne/Tarczowe linkowe:</SubTitle>
+                    <List>
+                        {discBrakePrices.map(item =>
+                            <Item key={item.nazwa}>
+                                <Position>
+                                    {item.nazwa}
+                                </Position>
+                                <Price>
+                                    {item.cena}
+                                </Price>
+                            </Item>
+                        )}
+                    </List>
+                </Card>
 
-                    </Item>
-                </List>
-            </Card>
-            <Card>
-                <Title>
-                    Przerzutki
-               </Title>
-                <List>
-                    <Item>
-                        <Position>Regulacja przerzutki p/t</Position>
-                        <Price>10zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana przerzutki p/t</Position>
-                        <Price>20zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Prostowanie haka przerzutki tylnej</Position>
-                        <Price>20zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana linki z pancerzem</Position>
-                        <Price>20zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana manetek</Position>
-                        <Price>30zł/para</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana klamkomanetek</Position>
-                        <Price>50zł/para</Price>
-
-                    </Item>
-                </List>
-            </Card>
-            <Card>
-                <Title>
-                    Hamulce
-               </Title>
-                <SubTitle>V-Breake/U-Brake/Cantilever/Szczękowe:</SubTitle>
-                <List>
-                    <Item>
-                        <Position>Regulacja hamulca</Position>
-                        <Price>10zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana klocków hamulcowych</Position>
-                        <Price>15zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana klamki hamulcowej</Position>
-                        <Price>25zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana linki i pancerza</Position>
-                        <Price>20zł</Price>
-                    </Item>
-                </List>
-                <SubTitle>Tarczowe hydrauliczne/Tarczowe linkowe:</SubTitle>
-                <List>
-                    <Item>
-                        <Position>Regulacja hamulca</Position>
-                        <Price>10zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Prostowanie tarczy hamulcowej</Position>
-                        <Price>15zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana tarczy hamulcowej</Position>
-                        <Price>15zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana płynu hamulcowego</Position>
-                        <Price>30zł</Price>
-                    </Item>
-                    <Item>
-                        <Position>Wymiana przewodów hamulcowych</Position>
-                        <Price>40zł</Price>
-                    </Item>
-                </List>
-            </Card>
-
-        </PricingContainer>
-    </StyledPricing>
-);
-
+            </PricingContainer >
+        </StyledPricing >
+    );
+}
 export default About;
 
 
