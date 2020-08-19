@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "985200f52b7e751c79ed24aa823127e0",
+    "revision": "9f12cac73b7b963bae29b72539fa57b3",
     "url": "/Veloserwis/index.html"
   },
   {
-    "revision": "e8aaf5982ee08be29a9d",
+    "revision": "08ae42d2df1674ef7a8e",
     "url": "/Veloserwis/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Veloserwis/static/js/2.d7ac10c7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e8aaf5982ee08be29a9d",
-    "url": "/Veloserwis/static/js/main.afa0ba25.chunk.js"
+    "revision": "08ae42d2df1674ef7a8e",
+    "url": "/Veloserwis/static/js/main.591e46ad.chunk.js"
   },
   {
     "revision": "8d777d9455a33ec4e27f",
