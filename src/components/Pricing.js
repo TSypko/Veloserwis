@@ -27,7 +27,7 @@ const PricingContainer = styled.div`
     margin: 0 auto;
     padding: 100px 50px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 40px;
     max-width: 1200px;
     z-index: 1;
