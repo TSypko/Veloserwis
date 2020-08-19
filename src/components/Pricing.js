@@ -101,16 +101,16 @@ const SubTitle = styled.span`
 const About = () => {
 
     const drivePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/39");
-    const [drivePrices, setDrivePrices] = useState([] || drivePriceData.loading);
+    const [drivePrices, setDrivePrices] = useState(drivePriceData.loading);
 
     const gearPriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/88");
-    const [gearPrices, setGearPrices] = useState([] || gearPriceData.loading);
+    const [gearPrices, setGearPrices] = useState(gearPriceData.loading);
 
     const rimBrakePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/136");
-    const [rimBrakePrices, setRimBrakePrices] = useState([] || rimBrakePriceData.loading);
+    const [rimBrakePrices, setRimBrakePrices] = useState(rimBrakePriceData.loading);
 
     const discBrakePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/91");
-    const [discBrakePrices, setDiscBrakePrices] = useState([] || discBrakePriceData.loading);
+    const [discBrakePrices, setDiscBrakePrices] = useState(discBrakePriceData.loading);
 
     useEffect(() => {
         let isActive = true;
@@ -180,7 +180,8 @@ const About = () => {
                         Napęd
                     </Title>
                     <List>
-                        {drivePrices.map(item =>
+                        {!(Array.isArray(drivePrices)) && drivePrices}
+                        {Array.isArray(drivePrices) && drivePrices.map(item =>
                             <Item key={item.nazwa}>
                                 <Position>
                                     {item.nazwa}
@@ -193,11 +194,12 @@ const About = () => {
                     </List>
                 </Card>
                 <Card>
-                <Title>
+                    <Title>
                         Przerzutki
                      </Title>
                     <List>
-                        {gearPrices.map(item =>
+                        {!(Array.isArray(gearPrices)) && gearPrices}
+                        {Array.isArray(gearPrices) && gearPrices.map(item =>
                             <Item key={item.nazwa}>
                                 <Position>
                                     {item.nazwa}
@@ -215,7 +217,8 @@ const About = () => {
                     </Title>
                     <SubTitle>V-Breake/U-Brake/Cantilever/Szczękowe:</SubTitle>
                     <List>
-                        {rimBrakePrices.map(item =>
+                        {!(Array.isArray(rimBrakePrices)) && rimBrakePrices}
+                        {Array.isArray(rimBrakePrices) && rimBrakePrices.map(item =>
                             <Item key={item.nazwa}>
                                 <Position>
                                     {item.nazwa}
@@ -228,7 +231,8 @@ const About = () => {
                     </List>
                     <SubTitle>Tarczowe hydrauliczne/Tarczowe linkowe:</SubTitle>
                     <List>
-                        {discBrakePrices.map(item =>
+                        {!(Array.isArray(discBrakePrices)) && discBrakePrices}
+                        {Array.isArray(discBrakePrices) && discBrakePrices.map(item =>
                             <Item key={item.nazwa}>
                                 <Position>
                                     {item.nazwa}
