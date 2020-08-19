@@ -62,8 +62,8 @@ const Paragraph = styled.p`
 
 const About = () => {
 
-    const aboutData = useFetch("http://localhost/RestAPITest/wp-json/wp/v2/pages/141");
-    const aboutDataImage = useFetch("http://localhost/RestAPITest/wp-json/wp/v2/media?parent=141");
+    const aboutData = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/pages/141");
+    const aboutDataImage = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/media?parent=141");
 
     const [aboutHeader, setAboutHeader] = useState(aboutData.loading);
     const [aboutContent, setAboutContent] = useState(aboutData.loading);

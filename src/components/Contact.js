@@ -83,7 +83,7 @@ const ContactItem = ({ image, header, text, textContinous }) => (
 )
 
 const Contact = () => {
-    const contactData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/6");
+    const contactData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/6");
 
     useEffect(() => {
         let isActive = true;

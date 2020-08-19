@@ -100,16 +100,16 @@ const SubTitle = styled.span`
 
 const About = () => {
 
-    const drivePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/39");
+    const drivePriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/39");
     const [drivePrices, setDrivePrices] = useState(drivePriceData.loading);
 
-    const gearPriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/88");
+    const gearPriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/88");
     const [gearPrices, setGearPrices] = useState(gearPriceData.loading);
 
-    const rimBrakePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/136");
+    const rimBrakePriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/136");
     const [rimBrakePrices, setRimBrakePrices] = useState(rimBrakePriceData.loading);
 
-    const discBrakePriceData = useFetch("http://localhost/RestAPITest/wp-json/acf/v3/pages/91");
+    const discBrakePriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/91");
     const [discBrakePrices, setDiscBrakePrices] = useState(discBrakePriceData.loading);
 
     useEffect(() => {

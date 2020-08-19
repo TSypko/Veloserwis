@@ -22,7 +22,7 @@ function App() {
     setIsOpened(!isOpened);
   };
 
-  const wpMainData = useFetch("http://localhost/RestAPITest/wp-json/");
+  const wpMainData = useFetch("https://tomek86.000webhostapp.com/wp-json/");
 
   const setDocumentHead = () => {
     if (wpMainData.response) {
