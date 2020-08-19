@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Veloserwis/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/Veloserwis/static/js/main.afa0ba25.chunk.js",
+    "main.js.map": "/Veloserwis/static/js/main.afa0ba25.chunk.js.map",
+    "runtime-main.js": "/Veloserwis/static/js/runtime-main.d1816137.js",
+    "runtime-main.js.map": "/Veloserwis/static/js/runtime-main.d1816137.js.map",
+    "static/js/2.d7ac10c7.chunk.js": "/Veloserwis/static/js/2.d7ac10c7.chunk.js",
+    "static/js/2.d7ac10c7.chunk.js.map": "/Veloserwis/static/js/2.d7ac10c7.chunk.js.map",
+    "index.html": "/Veloserwis/index.html",
+    "precache-manifest.54d0ea9ebde226f499c13a30213226dd.js": "/Veloserwis/precache-manifest.54d0ea9ebde226f499c13a30213226dd.js",
+    "service-worker.js": "/Veloserwis/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/Veloserwis/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.d7ac10c7.chunk.js.LICENSE.txt": "/Veloserwis/static/js/2.d7ac10c7.chunk.js.LICENSE.txt",
+    "static/media/background.jpg": "/Veloserwis/static/media/background.c802df8b.jpg",
+    "static/media/logo.svg": "/Veloserwis/static/media/logo.b035343f.svg",
+    "static/media/pricing.jpg": "/Veloserwis/static/media/pricing.78896c14.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d1816137.js",
+    "static/js/2.d7ac10c7.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.afa0ba25.chunk.js"
+  ]
+}
