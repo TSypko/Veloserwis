@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useFetch } from "../useFetch";
 import styled from "styled-components";
-import aboutImage from "../images/about.jpg"
+// import aboutImage from "../images/about.jpg";
+import renderHTML from 'react-render-html';
 
 const StyledAbout = styled.div`
     background: var(--secondaryDarken);
@@ -31,7 +33,8 @@ const Image = styled.img`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     box-shadow: 0px 0px 5px 1px #999;
 `;
 const Card = styled.div`
@@ -57,24 +60,66 @@ const Paragraph = styled.p`
         }
 `;
 
-const About = () => (
-    <StyledAbout>
-        <AboutContainer id="about">
-            <Image src={aboutImage} />
-            <Card>
-                <Header>
-                    O nas
-                </Header>
-                <Paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis turpis non leo pulvinar pellentesque. Nullam tempus ornare scelerisque. Aenean id gravida nisi. Cras nisl sapien, mattis vitae dapibus vel, vestibulum et odio. Vivamus facilisis
-                </Paragraph>
-                <Paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis turpis non leo pulvinar pellentesque. Nullam tempus ornare scelerisque. Aenean id gravida nisi. Cras nisl sapien, mattis vitae dapibus vel, vestibulum et odio. Vivamus facilisis
-                </Paragraph>
-            </Card>
-        </AboutContainer>
-    </StyledAbout>
-);
+const About = () => {
+
+    const aboutData = useFetch("http://localhost/RestAPITest/wp-json/wp/v2/pages/141");
+    const aboutDataImage = useFetch("http://localhost/RestAPITest/wp-json/wp/v2/media?parent=141");
+
+    const [aboutHeader, setAboutHeader] = useState(aboutData.loading);
+    const [aboutContent, setAboutContent] = useState(aboutData.loading);
+    const [aboutImage, setAboutImage] = useState(aboutDataImage.loading);
+
+    useEffect(() => {
+        let isActive = true;
+        if (aboutData.response && isActive) {
+            const details = aboutData.response;
+            const imageDataDetails = aboutDataImage.response;
+            setAboutHeader(details.title.rendered);
+            setAboutContent(details.content.rendered);
+            if (imageDataDetails) {
+                const imageID = imageDataDetails.find(({ id }) => id === (details.featured_media))
+                setAboutImage(imageID.source_url);
+            }
+        }
+        else if (aboutData.error) {
+            setAboutHeader(aboutData.error);
+            setAboutContent(aboutData.error);
+            setAboutImage(aboutData.error);
+        }
+        return () => isActive = false;
+    }, [aboutData.response, aboutData.error, aboutDataImage.response]);
+
+    // useEffect(() => {
+    //     let isActive = true;
+    //     if (aboutDataImage.response && isActive) {
+    //         const imageDataDetails = aboutDataImage.response;
+    //         console.log(details);
+    //         const imageID = imageDataDetails.find(({id}) => id === featuredImage);
+    //         console.log(imageID);
+    //         setAboutImage(imageID.source_url);
+    //     }
+    //     else if (aboutDataImage.error) {
+    //         setAboutImage(aboutDataImage.error);
+    //     }
+    //     return () => isActive = false;
+    // }, [aboutDataImage.response, aboutDataImage.error, featuredImage]);
+
+    return (
+        <StyledAbout>
+            <AboutContainer id="about">
+                <Image src={aboutImage} alt="image of about section"/>
+                <Card>
+                    <Header>
+                        {aboutHeader}
+                    </Header>
+                    <Paragraph>
+                        {renderHTML(aboutContent)}
+                    </Paragraph>
+                </Card>
+            </AboutContainer>
+        </StyledAbout>
+    );
+}
 
 export default About;
 
