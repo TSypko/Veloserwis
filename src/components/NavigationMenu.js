@@ -77,8 +77,6 @@ const ListLink = styled.a`
     }
 `;
 
-
-
 const NavigationMenu = ({ openMenu, isOpened, isScrolled }) => (
     <List open={isOpened} scroll={isScrolled}>
         <ListItem>
