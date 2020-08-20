@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useFetch } from "../useFetch";
 import styled from "styled-components";
-// import aboutImage from "../images/about.jpg";
 import renderHTML from 'react-render-html';
 
 const StyledAbout = styled.div`
@@ -88,21 +87,6 @@ const About = () => {
         }
         return () => isActive = false;
     }, [aboutData.response, aboutData.error, aboutDataImage.response]);
-
-    // useEffect(() => {
-    //     let isActive = true;
-    //     if (aboutDataImage.response && isActive) {
-    //         const imageDataDetails = aboutDataImage.response;
-    //         console.log(details);
-    //         const imageID = imageDataDetails.find(({id}) => id === featuredImage);
-    //         console.log(imageID);
-    //         setAboutImage(imageID.source_url);
-    //     }
-    //     else if (aboutDataImage.error) {
-    //         setAboutImage(aboutDataImage.error);
-    //     }
-    //     return () => isActive = false;
-    // }, [aboutDataImage.response, aboutDataImage.error, featuredImage]);
 
     return (
         <StyledAbout>
