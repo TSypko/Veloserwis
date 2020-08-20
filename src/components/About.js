@@ -2,10 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useFetch } from "../useFetch";
 import styled from "styled-components";
 import renderHTML from 'react-render-html';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useShowOnXScroll } from "../useShowOnXScroll";
 
 const StyledAbout = styled.div`
     background: var(--secondaryDarken);
@@ -96,21 +93,8 @@ const About = () => {
     const imageRef = useRef(null);
     const cardRef = useRef(null);
 
-    useEffect(() => {
-
-        gsap.fromTo(imageRef.current, { x: '+=-100', autoAlpha: 0 }, {
-            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
-                trigger: imageRef.current,
-                start: 'top 90%',
-            }
-        });
-        gsap.fromTo(cardRef.current, { x: '+=100', autoAlpha: 0 }, {
-            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
-                trigger: cardRef.current,
-                start: 'top 90%',
-            }
-        });
-    }, []);
+    useShowOnXScroll(imageRef.current, "+=-100", imageRef.current, "top 90%");
+    useShowOnXScroll(cardRef.current, "+=100", imageRef.current, "top 90%");
 
     return (
         <StyledAbout>
