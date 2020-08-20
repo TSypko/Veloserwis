@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import pricingImage from "../images/pricing.jpg";
 import { useFetch } from "../useFetch";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const StyledPricing = styled.div`
     background: url(${pricingImage});
@@ -11,6 +15,7 @@ const StyledPricing = styled.div`
     background-size: cover;
     box-shadow: inset 0px 10px 20px -5px rgba(0,0,0,0.75);
     position: relative;
+    overflow: hidden;
     z-index: 0;
     &::after {
         content: "";
@@ -47,6 +52,7 @@ const Card = styled.div`
     padding: 5px 20px;
     width: 100%;
     box-shadow: 0px 0px 5px 1px #999;
+    overflow: hidden;
 `;
 const Title = styled.h3`
     font-family: 'Montserrat', sans-serif;
@@ -172,10 +178,38 @@ const About = () => {
         return () => isActive = false;
     }, [discBrakePriceData.response, discBrakePriceData.error]);
 
+    const pricingRef = useRef(null);
+    const driveRef = useRef(null);
+    const gearRef = useRef(null);
+    const brakeRef = useRef(null);
+
+
+    useEffect(() => {
+
+        gsap.fromTo(driveRef.current, { x: '+=-100', autoAlpha: 0 }, {
+            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: pricingRef.current,
+                start: 'top 70%',
+            }
+        });
+        gsap.fromTo(gearRef.current, { y: '+=100', autoAlpha: 0 }, {
+            y: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: pricingRef.current,
+                start: 'top 70%',
+            }
+        });
+        gsap.fromTo(brakeRef.current, { x: '+=100', autoAlpha: 0 }, {
+            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: pricingRef.current,
+                start: 'top 70%',
+            }
+        });
+    }, []);
+
     return (
         <StyledPricing>
-            <PricingContainer id="pricing">
-                <Card>
+            <PricingContainer id="pricing" ref={pricingRef}>
+                <Card ref={driveRef}>
                     <Title>
                         Napęd
                     </Title>
@@ -193,7 +227,7 @@ const About = () => {
                         )}
                     </List>
                 </Card>
-                <Card>
+                <Card ref={gearRef}>
                     <Title>
                         Przerzutki
                      </Title>
@@ -211,7 +245,7 @@ const About = () => {
                         )}
                     </List>
                 </Card>
-                <Card>
+                <Card ref={brakeRef}>
                     <Title>
                         Hamulce
                     </Title>
