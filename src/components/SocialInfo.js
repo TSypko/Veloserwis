@@ -4,7 +4,7 @@ import facebook from "../images/facebook.svg"
 import instagram from "../images/instagram.svg"
 import messenger from "../images/messenger.svg"
 import twitter from "../images/twitter.svg"
-import { useShowOnYScroll } from "../useShowOnYScroll";
+import { useShowOnScrollY } from "../useShowOnScrollY";
 
 const StyledSocialInfo = styled.div`
     background: #222;
@@ -64,7 +64,7 @@ const SocialCaption = styled.p`
 const Contact = () => {
 
     const footerRef = useRef(null);
-    useShowOnYScroll(footerRef.current, "+=100", footerRef.current, "top 95%");
+    useShowOnScrollY(footerRef.current, "+=100", footerRef.current, "top 95%");
 
     return (
         <StyledSocialInfo>

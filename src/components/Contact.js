@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import MapElement from "./Map";
 import { useFetch } from "../useFetch";
-import { useShowOnXScroll } from "../useShowOnXScroll";
+import { useShowOnScrollX } from "../useShowOnScrollX";
 
 const StyledContact = styled.div`
     background: var(--secondaryDarken);
@@ -119,8 +119,8 @@ const Contact = () => {
     const mapRef = useRef(null);
     const cardRef = useRef(null);
 
-    useShowOnXScroll(mapRef.current, "+=-100", mapRef.current, "top 90%");
-    useShowOnXScroll(cardRef.current, "+=100", cardRef.current, "top 90%");
+    useShowOnScrollX(mapRef.current, "+=-100", mapRef.current, "top 90%");
+    useShowOnScrollX(cardRef.current, "+=100", cardRef.current, "top 90%");
 
     return (
         <StyledContact>

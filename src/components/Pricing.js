@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import pricingImage from "../images/pricing.jpg";
 import { useFetch } from "../useFetch";
-import { useShowOnXScroll } from "../useShowOnXScroll";
-import { useShowOnYScroll } from "../useShowOnYScroll";
+import { useShowOnScrollX } from "../useShowOnScrollX";
+import { useShowOnScrollY } from "../useShowOnScrollY";
 
 const StyledPricing = styled.div`
     background: url(${pricingImage});
@@ -181,9 +181,9 @@ const About = () => {
     const gearRef = useRef(null);
     const brakeRef = useRef(null);
 
-    useShowOnXScroll(driveRef.current, "+=-100", pricingRef.current, "top 70%");
-    useShowOnYScroll(gearRef.current, "+=100", pricingRef.current, "top 70%");
-    useShowOnXScroll(brakeRef.current, "+=100", pricingRef.current, "top 70%");
+    useShowOnScrollX(driveRef.current, "+=-100", pricingRef.current, "top 70%");
+    useShowOnScrollY(gearRef.current, "+=100", pricingRef.current, "top 70%");
+    useShowOnScrollX(brakeRef.current, "+=100", pricingRef.current, "top 70%");
 
     return (
         <StyledPricing>

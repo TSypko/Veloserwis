@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useFetch } from "../useFetch";
 import styled from "styled-components";
 import renderHTML from 'react-render-html';
-import { useShowOnXScroll } from "../useShowOnXScroll";
+import { useShowOnScrollX } from "../useShowOnScrollX";
 
 const StyledAbout = styled.div`
     background: var(--secondaryDarken);
@@ -93,8 +93,8 @@ const About = () => {
     const imageRef = useRef(null);
     const cardRef = useRef(null);
 
-    useShowOnXScroll(imageRef.current, "+=-100", imageRef.current, "top 90%");
-    useShowOnXScroll(cardRef.current, "+=100", imageRef.current, "top 90%");
+    useShowOnScrollX(imageRef.current, "+=-100", imageRef.current, "top 90%");
+    useShowOnScrollX(cardRef.current, "+=100", imageRef.current, "top 90%");
 
     return (
         <StyledAbout>
