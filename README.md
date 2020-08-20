@@ -1,4 +1,4 @@
-
+![Mockup](https://raw.githubusercontent.com/TSypko/Veloserwis/master/mockup.png)
 
 # VELOSERWIS
 LIVE LINK: [https://tsypko.github.io/Veloserwis/](https://tsypko.github.io/Veloserwis/)
