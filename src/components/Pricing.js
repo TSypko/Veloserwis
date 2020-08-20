@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import pricingImage from "../images/pricing.jpg";
 import { useFetch } from "../useFetch";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useShowOnXScroll } from "../useShowOnXScroll";
+import { useShowOnYScroll } from "../useShowOnYScroll";
 
 const StyledPricing = styled.div`
     background: url(${pricingImage});
@@ -183,28 +181,9 @@ const About = () => {
     const gearRef = useRef(null);
     const brakeRef = useRef(null);
 
-
-    useEffect(() => {
-
-        gsap.fromTo(driveRef.current, { x: '+=-100', autoAlpha: 0 }, {
-            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
-                trigger: pricingRef.current,
-                start: 'top 70%',
-            }
-        });
-        gsap.fromTo(gearRef.current, { y: '+=100', autoAlpha: 0 }, {
-            y: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
-                trigger: pricingRef.current,
-                start: 'top 70%',
-            }
-        });
-        gsap.fromTo(brakeRef.current, { x: '+=100', autoAlpha: 0 }, {
-            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
-                trigger: pricingRef.current,
-                start: 'top 70%',
-            }
-        });
-    }, []);
+    useShowOnXScroll(driveRef.current, "+=-100", pricingRef.current, "top 70%");
+    useShowOnYScroll(gearRef.current, "+=100", pricingRef.current, "top 70%");
+    useShowOnXScroll(brakeRef.current, "+=100", pricingRef.current, "top 70%");
 
     return (
         <StyledPricing>
