@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useFetch } from "../useFetch";
 import styled from "styled-components";
 import renderHTML from 'react-render-html';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const StyledAbout = styled.div`
     background: var(--secondaryDarken);
@@ -61,6 +65,28 @@ const Paragraph = styled.p`
 
 const About = () => {
 
+    const imageRef = useRef(null);
+    const cardRef = useRef(null);
+
+
+    useEffect(() => {
+      
+        gsap.fromTo(imageRef.current, { x: '+=-100', opacity: 0 }, {
+            x: 0, opacity: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: imageRef.current,
+                start: 'top 90%',
+                markers: true,
+            }
+        });
+        gsap.fromTo(cardRef.current, { x: '+=100', opacity: 0 }, {
+            x: 0, opacity: 1, stagger: 0.2, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: cardRef.current,
+                start: 'top 90%',
+                markers: true,
+            }
+        });
+    }, []);
+
     const aboutData = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/pages/141");
     const aboutDataImage = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/media?parent=141");
 
@@ -91,8 +117,11 @@ const About = () => {
     return (
         <StyledAbout>
             <AboutContainer id="about">
-                <Image src={aboutImage} alt="image of about section"/>
-                <Card>
+                <Image
+                    src={aboutImage}
+                    alt="image of about section"
+                    ref={imageRef} />
+                <Card ref={cardRef}>
                     <Header>
                         {aboutHeader}
                     </Header>
