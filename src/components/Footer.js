@@ -1,14 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-
-const StyledFooter = styled.footer`
- 
-`;
 
 const Footer = ({ children }) => (
-    <StyledFooter>
+    <footer>
         {children}
-    </StyledFooter>
+    </footer>
 );
 
 export default Footer;
