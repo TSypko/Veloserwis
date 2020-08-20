@@ -60,7 +60,6 @@ const SocialCaption = styled.p`
     margin: 0;
 `;
 
-
 const Contact = () => {
 
     const footerRef = useRef(null);
