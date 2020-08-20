@@ -19,6 +19,7 @@ const AboutContainer = styled.div`
     grid-gap: 80px;
     align-items: center;
     max-width: 1200px;
+    overflow: hidden;
     @media (max-width: 360px)
         {   
             padding: 20px;
@@ -65,28 +66,6 @@ const Paragraph = styled.p`
 
 const About = () => {
 
-    const imageRef = useRef(null);
-    const cardRef = useRef(null);
-
-
-    useEffect(() => {
-      
-        gsap.fromTo(imageRef.current, { x: '+=-100', opacity: 0 }, {
-            x: 0, opacity: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
-                trigger: imageRef.current,
-                start: 'top 90%',
-                markers: true,
-            }
-        });
-        gsap.fromTo(cardRef.current, { x: '+=100', opacity: 0 }, {
-            x: 0, opacity: 1, stagger: 0.2, duration: 1, ease: 'easeInOut', scrollTrigger: {
-                trigger: cardRef.current,
-                start: 'top 90%',
-                markers: true,
-            }
-        });
-    }, []);
-
     const aboutData = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/pages/141");
     const aboutDataImage = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/media?parent=141");
 
@@ -113,6 +92,25 @@ const About = () => {
         }
         return () => isActive = false;
     }, [aboutData.response, aboutData.error, aboutDataImage.response]);
+
+    const imageRef = useRef(null);
+    const cardRef = useRef(null);
+
+    useEffect(() => {
+
+        gsap.fromTo(imageRef.current, { x: '+=-100', opacity: 0 }, {
+            x: 0, opacity: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: imageRef.current,
+                start: 'top 90%',
+            }
+        });
+        gsap.fromTo(cardRef.current, { x: '+=100', opacity: 0 }, {
+            x: 0, opacity: 1, stagger: 0.2, duration: 1, ease: 'easeInOut', scrollTrigger: {
+                trigger: cardRef.current,
+                start: 'top 90%',
+            }
+        });
+    }, []);
 
     return (
         <StyledAbout>
