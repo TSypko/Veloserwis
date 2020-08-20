@@ -4,6 +4,7 @@ import Wrapper from "./components/Wrapper";
 import LogoContainer from "./components/LogoContainer/index";
 import Navigation from "./components/Navigation";
 import NavigationMenu from "./components/NavigationMenu";
+import Header from "./components/Header";
 import Main from "./components/Main";
 import Section from "./components/Section";
 import Hero from "./components/Hero";
@@ -47,7 +48,7 @@ function App() {
       <GlobalStyles />
       <Wrapper isScrolled={onScroll}>
         <Navigation ref={navRef}>
-          <LogoContainer isScrolled={onScroll}/>
+          <LogoContainer isScrolled={onScroll} />
           <NavigationMenu
             openMenu={openMenu}
             isOpened={isOpened}
@@ -58,10 +59,12 @@ function App() {
             isScrolled={onScroll} />
         </Navigation>
       </Wrapper>
-      <Main >
+      <Header>
         <Section
           body={<Hero />}
         />
+      </Header>
+      <Main >
         <Section
           body={<About />}
         />
