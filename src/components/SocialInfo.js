@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import facebook from "../images/facebook.png"
-import instagram from "../images/instagram.png"
-import messenger from "../images/messenger.png"
-import twitter from "../images/twitter.png"
+import facebook from "../images/facebook.svg"
+import instagram from "../images/instagram.svg"
+import messenger from "../images/messenger.svg"
+import twitter from "../images/twitter.svg"
 import { useShowOnYScroll } from "../useShowOnYScroll";
 
 const StyledSocialInfo = styled.div`
@@ -36,10 +36,17 @@ const SocialIconsContainer = styled.div`
 
 const SocialLogo = styled.img`
     width: 30px;
+    margin: 0px 10px;
     filter: brightness(0%) invert(100%);
-`;
-const SocialLink = styled.a`
-    
+    &:hover {
+        filter: 
+            invert(51%) 
+            sepia(67%) 
+            saturate(3579%) 
+            hue-rotate(330deg) 
+            brightness(102%) 
+            contrast(102%);
+    }
 `;
 
 const SocialCaption = styled.p`
@@ -64,18 +71,18 @@ const Contact = () => {
             <SocialInfoContainer ref={footerRef}>
                 <SocialTitle>Znajdź nas na</SocialTitle>
                 <SocialIconsContainer>
-                    <SocialLink href="http://www.facebook.com" target="_blank">
+                    <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
                         <SocialLogo src={facebook} alt="Facebok Icon" />
-                    </SocialLink>
-                    <SocialLink href="http://www.instagram.com" target="_blank">
+                    </a>
+                    <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer">
                         <SocialLogo src={instagram} alt="Instagram Icon" />
-                    </SocialLink>
-                    <SocialLink href="http://www.messenger.com" target="_blank">
+                    </a>
+                    <a href="http://www.messenger.com" target="_blank" rel="noopener noreferrer">
                         <SocialLogo src={messenger} alt="Messenger Icon" />
-                    </SocialLink>
-                    <SocialLink href="http://www.twitter.com" target="_blank">
+                    </a>
+                    <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
                         <SocialLogo src={twitter} alt="Twitter Icon" />
-                    </SocialLink>
+                    </a>
                 </SocialIconsContainer>
                 <SocialCaption>Tomasz Sypko &copy; 2020</SocialCaption>
             </SocialInfoContainer>
