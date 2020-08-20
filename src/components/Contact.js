@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import MapElement from "./Map";
 import { useFetch } from "../useFetch";
+import { useShowOnXScroll } from "../useShowOnXScroll";
 
 const StyledContact = styled.div`
     background: var(--secondaryDarken);
     box-shadow: inset 0px 10px 20px -5px rgba(0,0,0,0.75);
+    overflow: hidden;
 `;
 const ContactContainer = styled.div`
     margin: 0 auto;
@@ -114,13 +116,19 @@ const Contact = () => {
     const [hours, setHours] = useState(contactData.loading);
     const [hoursMore, setHoursMore] = useState(contactData.loading);
 
+    const mapRef = useRef(null);
+    const cardRef = useRef(null);
+
+    useShowOnXScroll(mapRef.current, "+=-100", mapRef.current, "top 90%");
+    useShowOnXScroll(cardRef.current, "+=100", cardRef.current, "top 90%");
+
     return (
         <StyledContact>
             <ContactContainer id="contact">
-                <MapContainer>
+                <MapContainer ref={mapRef}>
                     <MapElement />
                 </MapContainer>
-                <ContactItems>
+                <ContactItems ref={cardRef}>
                     <ContactItem image="📧" header="E-mail" text={email} />
                     <ContactItem image="🏬" header="Adres" text={adress} textContinous={adressMore} />
                     <ContactItem image="📱" header="Telefon" text={phone} />
