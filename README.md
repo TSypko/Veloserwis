@@ -6,7 +6,7 @@ LIVE LINK: [https://tsypko.github.io/Veloserwis/](https://tsypko.github.io/Velos
 
 ## DESCRIPTION
 
-Fake website of bicycle reapair shop. 
+Wwebsite of fake bicycle reapair shop. 
 
 ### TECHNOLOGIES USED:
 
