@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9f12cac73b7b963bae29b72539fa57b3",
+    "revision": "0342f35bb1a72e0b1ba3bfe3e0df7c66",
     "url": "/Veloserwis/index.html"
   },
   {
-    "revision": "08ae42d2df1674ef7a8e",
+    "revision": "7bfeff212420894cc93d",
     "url": "/Veloserwis/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "775c6259096e9c8f7409",
-    "url": "/Veloserwis/static/js/2.d7ac10c7.chunk.js"
+    "revision": "fd5750daf8207b1e17c5",
+    "url": "/Veloserwis/static/js/2.4dd1b68b.chunk.js"
   },
   {
-    "revision": "297066dc9c240cac50b6991385e4046c",
-    "url": "/Veloserwis/static/js/2.d7ac10c7.chunk.js.LICENSE.txt"
+    "revision": "7e6a9153c72a0c9e534d3483e824e012",
+    "url": "/Veloserwis/static/js/2.4dd1b68b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "08ae42d2df1674ef7a8e",
-    "url": "/Veloserwis/static/js/main.591e46ad.chunk.js"
+    "revision": "7bfeff212420894cc93d",
+    "url": "/Veloserwis/static/js/main.368dac06.chunk.js"
   },
   {
     "revision": "8d777d9455a33ec4e27f",
