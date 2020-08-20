@@ -4,7 +4,7 @@ export const useFetch = (URL) => {
 
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState("Loading...");
+    const [loading, setLoading] = useState("Ładowanie danych");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,7 +15,7 @@ export const useFetch = (URL) => {
                 setLoading("");
             } catch (error) {
                 setLoading("");
-                setError("Unable to receive data");
+                setError("Nie udało się pobrać danych");
             }
         };
         fetchData();
