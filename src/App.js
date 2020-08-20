@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { GlobalStyles } from './GlobalStyles';
+import Head from "./components/Head";
 import Wrapper from "./components/Wrapper";
 import LogoContainer from "./components/LogoContainer/index";
 import Navigation from "./components/Navigation";
@@ -14,7 +15,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SocialInfo from "./components/SocialInfo";
 import BurgerButton from "./components/Burger";
-import { useFetch } from "./useFetch";
+
 
 function App() {
   const [isOpened, setIsOpened] = useState(false);
@@ -33,18 +34,9 @@ function App() {
   };
   window.onscroll = onScrollNavStyleChange;
 
-  const wpMainData = useFetch("https://tomek86.000webhostapp.com/wp-json/");
-
-  const setDocumentHead = () => {
-    if (wpMainData.response) {
-      document.title = wpMainData.response.name;
-      document.head.querySelector('meta[name="description"]').content = wpMainData.response.description;
-    };
-  };
-  setDocumentHead();
-
   return (
     <>
+      <Head />
       <GlobalStyles />
       <Wrapper isScrolled={onScroll}>
         <Navigation ref={navRef}>
