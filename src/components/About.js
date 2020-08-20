@@ -98,14 +98,14 @@ const About = () => {
 
     useEffect(() => {
 
-        gsap.fromTo(imageRef.current, { x: '+=-100', opacity: 0 }, {
-            x: 0, opacity: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
+        gsap.fromTo(imageRef.current, { x: '+=-100', autoAlpha: 0 }, {
+            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
                 trigger: imageRef.current,
                 start: 'top 90%',
             }
         });
-        gsap.fromTo(cardRef.current, { x: '+=100', opacity: 0 }, {
-            x: 0, opacity: 1, stagger: 0.2, duration: 1, ease: 'easeInOut', scrollTrigger: {
+        gsap.fromTo(cardRef.current, { x: '+=100', autoAlpha: 0 }, {
+            x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
                 trigger: cardRef.current,
                 start: 'top 90%',
             }
