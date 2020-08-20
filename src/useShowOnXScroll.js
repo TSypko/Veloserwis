@@ -10,7 +10,6 @@ useEffect(() => {
         x: 0, autoAlpha: 1, duration: 1, ease: 'easeInOut', scrollTrigger: {
             trigger: startRef,
             start: startPos,
-            markers: true,
         }
     });
 }, [ref, amount, startRef, startPos]);
