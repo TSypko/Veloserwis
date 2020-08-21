@@ -1,7 +1,7 @@
 ![Mockup](https://raw.githubusercontent.com/TSypko/Veloserwis/master/mockup.png)
 
 # VELOSERWIS
-LIVE LINK: [https://tsypko.github.io/Veloserwis/](https://tsypko.github.io/Veloserwis/)
+LIVE LINK: [http://veloserwis.tomek86.atthost24.pl/](http://veloserwis.tomek86.atthost24.pl/)
 
 
 ## DESCRIPTION
@@ -10,7 +10,7 @@ Website of fake bicycle reapair shop build as a playground for learning and test
 
 ### TECHNOLOGIES USED:
 
-- WORDPRESS as Headless CMS
+- WORDPRESS as Headless CMS + "ACF" plugin + "ACF to REST API" plugin
 - HTML
 - CSS
 - JavaScript ES6+
@@ -32,9 +32,6 @@ Website of fake bicycle reapair shop build as a playground for learning and test
 [Tomasz Sypko](https://tsypko.github.io/homepage/). Pre Junior Front End Developer from Rzeszów, Poland. 
 ### CONTACT:
 Please feel free to contact with author: [tsypko@gmail.com](tsypko@gmail.com)
-
-
-v. 1.0.0
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
