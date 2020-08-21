@@ -59,8 +59,8 @@ const Content = styled.span`
 
 const About = () => {
 
-    const aboutData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/wp/v2/pages/141");
-    const aboutDataImage = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/wp/v2/media?parent=141");
+    const aboutData = useFetch("/wordpress/wp-json/wp/v2/pages/141");
+    const aboutDataImage = useFetch("/wordpress/wp-json/wp/v2/media?parent=141");
 
     const [aboutHeader, setAboutHeader] = useLocalStorageState("AboutHeader", aboutData.loading);
     const [aboutContent, setAboutContent] = useLocalStorageState("AboutContent", aboutData.loading);

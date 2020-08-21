@@ -5,7 +5,7 @@ import { useLocalStorageState } from "../useLocalStorageState";
 
 const Head = () => {
 
-    const wpMainData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/");
+    const wpMainData = useFetch("/wordpress/wp-json/");
 
     const [title, setTitle] = useLocalStorageState("HeadTitle", wpMainData.loading);
     const [description, setDescription] = useLocalStorageState("MetaDescription", wpMainData.loading);

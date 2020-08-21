@@ -5,7 +5,7 @@ import { useLocalStorageState } from "../../useLocalStorageState";
 
 const RimBrakes = () => {
 
-    const rimBrakePriceData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/acf/v3/pages/136");
+    const rimBrakePriceData = useFetch("/wordpress/wp-json/acf/v3/pages/136");
     const [rimBrakePrices, setRimBrakePrices] = useLocalStorageState("RimBrakesInfo", rimBrakePriceData.loading);
 
     useEffect(() => {

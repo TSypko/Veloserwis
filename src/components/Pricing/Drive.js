@@ -5,7 +5,7 @@ import { useLocalStorageState } from "../../useLocalStorageState";
 
 const Drive = () => {
 
-    const drivePriceData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/acf/v3/pages/39");
+    const drivePriceData = useFetch("/wordpress/wp-json/acf/v3/pages/39");
     const [drivePrices, setDrivePrices] = useLocalStorageState("DriveInfo", drivePriceData.loading);
 
     useEffect(() => {

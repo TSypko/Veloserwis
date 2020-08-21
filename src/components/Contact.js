@@ -86,7 +86,7 @@ const ContactItem = ({ image, header, text, textContinous }) => (
 )
 
 const Contact = () => {
-    const contactData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/acf/v3/pages/134");
+    const contactData = useFetch("/wordpress/wp-json/acf/v3/pages/134");
 
     const [email, setEmail] = useLocalStorageState("Email", contactData.loading);
     const [adress, setAdress] = useLocalStorageState("Adress", contactData.loading);
