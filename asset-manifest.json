@@ -1,29 +1,26 @@
 {
   "files": {
-    "main.css": "/Veloserwis/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/Veloserwis/static/js/main.4f3260dd.chunk.js",
-    "main.js.map": "/Veloserwis/static/js/main.4f3260dd.chunk.js.map",
-    "runtime-main.js": "/Veloserwis/static/js/runtime-main.d1816137.js",
-    "runtime-main.js.map": "/Veloserwis/static/js/runtime-main.d1816137.js.map",
-    "static/js/2.4dd1b68b.chunk.js": "/Veloserwis/static/js/2.4dd1b68b.chunk.js",
-    "static/js/2.4dd1b68b.chunk.js.map": "/Veloserwis/static/js/2.4dd1b68b.chunk.js.map",
-    "index.html": "/Veloserwis/index.html",
-    "precache-manifest.fbbf6753dc6860a31da52def7431c50e.js": "/Veloserwis/precache-manifest.fbbf6753dc6860a31da52def7431c50e.js",
-    "service-worker.js": "/Veloserwis/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "/Veloserwis/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.4dd1b68b.chunk.js.LICENSE.txt": "/Veloserwis/static/js/2.4dd1b68b.chunk.js.LICENSE.txt",
-    "static/media/background.jpg": "/Veloserwis/static/media/background.c802df8b.jpg",
-    "static/media/facebook.svg": "/Veloserwis/static/media/facebook.03309f67.svg",
-    "static/media/instagram.svg": "/Veloserwis/static/media/instagram.41ece4a9.svg",
-    "static/media/logo.svg": "/Veloserwis/static/media/logo.b035343f.svg",
-    "static/media/messenger.svg": "/Veloserwis/static/media/messenger.8a9b6d91.svg",
-    "static/media/pricing.jpg": "/Veloserwis/static/media/pricing.78896c14.jpg",
-    "static/media/twitter.svg": "/Veloserwis/static/media/twitter.81a92f37.svg"
+    "main.js": "/static/js/main.675682eb.chunk.js",
+    "main.js.map": "/static/js/main.675682eb.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5121026b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5121026b.js.map",
+    "static/js/2.e87c9b85.chunk.js": "/static/js/2.e87c9b85.chunk.js",
+    "static/js/2.e87c9b85.chunk.js.map": "/static/js/2.e87c9b85.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.fbaedca9eaae4ce17444e4c791e0dc9f.js": "/precache-manifest.fbaedca9eaae4ce17444e4c791e0dc9f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.e87c9b85.chunk.js.LICENSE.txt": "/static/js/2.e87c9b85.chunk.js.LICENSE.txt",
+    "static/media/background.jpg": "/static/media/background.e7d8021c.jpg",
+    "static/media/facebook.svg": "/static/media/facebook.03309f67.svg",
+    "static/media/instagram.svg": "/static/media/instagram.41ece4a9.svg",
+    "static/media/logo.svg": "/static/media/logo.b035343f.svg",
+    "static/media/messenger.svg": "/static/media/messenger.8a9b6d91.svg",
+    "static/media/pricing.jpg": "/static/media/pricing.78896c14.jpg",
+    "static/media/twitter.svg": "/static/media/twitter.81a92f37.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d1816137.js",
-    "static/js/2.4dd1b68b.chunk.js",
-    "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.4f3260dd.chunk.js"
+    "static/js/runtime-main.5121026b.js",
+    "static/js/2.e87c9b85.chunk.js",
+    "static/js/main.675682eb.chunk.js"
   ]
 }
