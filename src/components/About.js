@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useFetch } from "../useFetch";
 import styled from "styled-components";
 import renderHTML from 'react-render-html';
 import { useShowOnScrollX } from "../useShowOnScrollX";
+import { useLocalStorageState } from "../useLocalStorageState";
 
 const StyledAbout = styled.div`
     background: var(--secondaryDarken);
@@ -50,7 +51,7 @@ const Header = styled.h2`
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
 `;
-const Paragraph = styled.p`
+const Content = styled.span`
     @media (max-width: 320px)  {   
         font-size: 14px;
     }
@@ -61,9 +62,9 @@ const About = () => {
     const aboutData = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/pages/141");
     const aboutDataImage = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/media?parent=141");
 
-    const [aboutHeader, setAboutHeader] = useState(aboutData.loading);
-    const [aboutContent, setAboutContent] = useState(aboutData.loading);
-    const [aboutImage, setAboutImage] = useState(aboutDataImage.loading);
+    const [aboutHeader, setAboutHeader] = useLocalStorageState("AboutHeader", aboutData.loading);
+    const [aboutContent, setAboutContent] = useLocalStorageState("AboutContent", aboutData.loading);
+    const [aboutImage, setAboutImage] = useLocalStorageState("AboutImage", aboutDataImage.loading);
 
     useEffect(() => {
         let isActive = true;
@@ -83,6 +84,7 @@ const About = () => {
             setAboutImage(aboutData.error);
         }
         return () => isActive = false;
+        // eslint-disable-next-line
     }, [aboutData.response, aboutData.error, aboutDataImage.response]);
 
     const imageRef = useRef(null);
@@ -102,9 +104,9 @@ const About = () => {
                     <Header>
                         {aboutHeader}
                     </Header>
-                    <Paragraph>
+                    <Content>
                         {renderHTML(aboutContent)}
-                    </Paragraph>
+                    </Content>
                 </Card>
             </AboutContainer>
         </StyledAbout>

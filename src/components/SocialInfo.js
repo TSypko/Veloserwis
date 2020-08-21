@@ -63,7 +63,7 @@ const SocialCaption = styled.p`
 const Contact = () => {
 
     const footerRef = useRef(null);
-    useShowOnScrollY(footerRef.current, "+=100", footerRef.current, "top 95%");
+    useShowOnScrollY(footerRef.current, "+=100", footerRef.current, "top 105%");
 
     return (
         <StyledSocialInfo>

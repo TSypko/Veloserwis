@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useFetch } from "../../useFetch";
-import {  Item, Position,  Price } from "./styled";
+import { Item, Position, Price } from "./styled";
+import { useLocalStorageState } from "../../useLocalStorageState";
 
 const Gear = () => {
 
     const gearPriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/88");
-    const [gearPrices, setGearPrices] = useState(gearPriceData.loading);
+    const [gearPrices, setGearPrices] = useLocalStorageState("DiscBrakesInfo", gearPriceData.loading);
 
     useEffect(() => {
         let isActive = true;
@@ -20,6 +21,7 @@ const Gear = () => {
 
         }
         return () => isActive = false;
+        // eslint-disable-next-line
     }, [gearPriceData.response, gearPriceData.error]);
 
     return (

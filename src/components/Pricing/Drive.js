@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useFetch } from "../../useFetch";
-import {  Item, Position,  Price } from "./styled";
+import { Item, Position, Price } from "./styled";
+import { useLocalStorageState } from "../../useLocalStorageState";
 
 const Drive = () => {
 
     const drivePriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/39");
-    const [drivePrices, setDrivePrices] = useState(drivePriceData.loading);
+    const [drivePrices, setDrivePrices] = useLocalStorageState("DriveInfo", drivePriceData.loading);
 
     useEffect(() => {
         let isActive = true;
@@ -20,6 +21,7 @@ const Drive = () => {
 
         }
         return () => isActive = false;
+        // eslint-disable-next-line
     }, [drivePriceData.response, drivePriceData.error]);
 
     return (

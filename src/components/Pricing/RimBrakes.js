@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useFetch } from "../../useFetch";
-import {  Item, Position,  Price } from "./styled";
+import { Item, Position, Price } from "./styled";
+import { useLocalStorageState } from "../../useLocalStorageState";
 
 const RimBrakes = () => {
 
     const rimBrakePriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/136");
-    const [rimBrakePrices, setRimBrakePrices] = useState(rimBrakePriceData.loading);
+    const [rimBrakePrices, setRimBrakePrices] = useLocalStorageState("RimBrakesInfo", rimBrakePriceData.loading);
 
     useEffect(() => {
         let isActive = true;
@@ -20,6 +21,7 @@ const RimBrakes = () => {
 
         }
         return () => isActive = false;
+        // eslint-disable-next-line
     }, [rimBrakePriceData.response, rimBrakePriceData.error]);
 
     return (
