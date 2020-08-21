@@ -5,7 +5,7 @@ import { useLocalStorageState } from "../../useLocalStorageState";
 
 const Drive = () => {
 
-    const drivePriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/39");
+    const drivePriceData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/acf/v3/pages/39");
     const [drivePrices, setDrivePrices] = useLocalStorageState("DriveInfo", drivePriceData.loading);
 
     useEffect(() => {
@@ -13,8 +13,12 @@ const Drive = () => {
         if (drivePriceData.response && isActive) {
             const details = drivePriceData.response.acf;
             const detailsList = Object.values(details);
-            const detailsToRender = Array.from(detailsList);
-            setDrivePrices(detailsToRender.filter(item => item.nazwa !== ""));
+            const detailsToSort = Array.from(detailsList);
+            const detailsToRender = detailsToSort.filter(item => item.nazwa !== "");
+
+            if (detailsToRender !== drivePrices) {
+                setDrivePrices(detailsToRender)
+            };
         }
         else if (drivePriceData.error) {
             setDrivePrices(drivePriceData.error);

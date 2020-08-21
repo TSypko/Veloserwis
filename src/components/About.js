@@ -59,8 +59,8 @@ const Content = styled.span`
 
 const About = () => {
 
-    const aboutData = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/pages/141");
-    const aboutDataImage = useFetch("https://tomek86.000webhostapp.com/wp-json/wp/v2/media?parent=141");
+    const aboutData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/wp/v2/pages/141");
+    const aboutDataImage = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/wp/v2/media?parent=141");
 
     const [aboutHeader, setAboutHeader] = useLocalStorageState("AboutHeader", aboutData.loading);
     const [aboutContent, setAboutContent] = useLocalStorageState("AboutContent", aboutData.loading);
@@ -71,12 +71,22 @@ const About = () => {
         if (aboutData.response && isActive) {
             const details = aboutData.response;
             const imageDataDetails = aboutDataImage.response;
-            setAboutHeader(details.title.rendered);
-            setAboutContent(details.content.rendered);
+
+            if (details.title.rendered !== aboutHeader) {
+                setAboutHeader(details.title.rendered);
+            };
+
+            if (details.title.rendered !== aboutContent) {
+                setAboutContent(details.content.rendered);
+            };
+
             if (imageDataDetails) {
-                const imageID = imageDataDetails.find(({ id }) => id === (details.featured_media))
-                setAboutImage(imageID.source_url);
-            }
+                const imageID = imageDataDetails.find(({ id }) => id === (details.featured_media));
+
+                if (imageID !== imageDataDetails) {
+                    setAboutImage(imageID.source_url);
+                }
+            };
         }
         else if (aboutData.error) {
             setAboutHeader(aboutData.error);

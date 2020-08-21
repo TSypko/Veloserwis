@@ -5,7 +5,7 @@ import { useLocalStorageState } from "../../useLocalStorageState";
 
 const DiscBrakes = () => {
 
-    const discBrakePriceData = useFetch("https://tomek86.000webhostapp.com/wp-json/acf/v3/pages/91");
+    const discBrakePriceData = useFetch("http://veloserwis.tomek86.atthost24.pl/wordpress/wp-json/acf/v3/pages/91");
     const [discBrakePrices, setDiscBrakePrices] = useLocalStorageState("GearInfo", discBrakePriceData.loading);
 
     useEffect(() => {
@@ -13,8 +13,12 @@ const DiscBrakes = () => {
         if (discBrakePriceData.response && isActive) {
             const details = discBrakePriceData.response.acf;
             const detailsList = Object.values(details);
-            const detailsToRender = Array.from(detailsList);
-            setDiscBrakePrices(detailsToRender.filter(item => item.nazwa !== ""));
+            const detailsToSort = Array.from(detailsList);
+            const detailsToRender = detailsToSort.filter(item => item.nazwa !== "");
+
+            if (detailsToRender !== discBrakePrices) {
+                setDiscBrakePrices(detailsToRender)
+            };
         }
         else if (discBrakePriceData.error) {
             setDiscBrakePrices(discBrakePriceData.error);
