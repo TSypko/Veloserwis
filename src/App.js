@@ -39,7 +39,7 @@ function App() {
       <Head />
       <GlobalStyles />
       <Wrapper isScrolled={onScroll}>
-        <Navigation ref={navRef}>
+        <Navigation forwardRef={navRef}>
           <LogoContainer isScrolled={onScroll} />
           <NavigationMenu
             openMenu={openMenu}
