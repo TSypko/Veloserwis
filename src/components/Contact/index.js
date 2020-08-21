@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { StyledContact, ContactContainer, MapContainer, ContactItems } from "./styled"
-import ContactItem from "../ContactItem";
+import ContactItem from "./ContactItem";
 import MapElement from "../Map";
 import { useFetch } from "../../useFetch";
 import { useShowOnScrollX } from "../../useShowOnScrollX";
