@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import facebook from "../images/facebook.svg"
-import instagram from "../images/instagram.svg"
+import instagram from "../images/instagram.png"
 import messenger from "../images/messenger.svg"
 import twitter from "../images/twitter.svg"
 import { useShowOnScrollY } from "../useShowOnScrollY";
