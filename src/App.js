@@ -15,6 +15,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SocialInfo from "./components/SocialInfo";
 import BurgerButton from "./components/Burger";
+import MapElement from "./components/Map";
 
 
 function App() {
@@ -66,8 +67,12 @@ function App() {
         <Section
           body={<Contact />}
         />
+        <Section
+          body={<MapElement />}
+        />
       </Main>
       <Footer>
+      
         <Section
           body={<SocialInfo />}
         />

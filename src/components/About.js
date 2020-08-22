@@ -59,17 +59,17 @@ const Content = styled.span`
 
 const About = () => {
 
-    const aboutData = useFetch("/wordpress/wp-json/wp/v2/pages/141");
+    const aboutDataPage = useFetch("/wordpress/wp-json/wp/v2/pages/141");
     const aboutDataImage = useFetch("/wordpress/wp-json/wp/v2/media?parent=141");
 
-    const [aboutHeader, setAboutHeader] = useLocalStorageState("AboutHeader", aboutData.loading);
-    const [aboutContent, setAboutContent] = useLocalStorageState("AboutContent", aboutData.loading);
+    const [aboutHeader, setAboutHeader] = useLocalStorageState("AboutHeader", aboutDataPage.loading);
+    const [aboutContent, setAboutContent] = useLocalStorageState("AboutContent", aboutDataPage.loading);
     const [aboutImage, setAboutImage] = useLocalStorageState("AboutImage", aboutDataImage.loading);
 
     useEffect(() => {
         let isActive = true;
-        if (aboutData.response && isActive) {
-            const details = aboutData.response;
+        if (aboutDataPage.response && isActive) {
+            const details = aboutDataPage.response;
             const imageDataDetails = aboutDataImage.response;
 
             if (details.title.rendered !== aboutHeader) {
@@ -82,20 +82,19 @@ const About = () => {
 
             if (imageDataDetails) {
                 const imageID = imageDataDetails.find(({ id }) => id === (details.featured_media));
-
                 if (imageID !== imageDataDetails) {
                     setAboutImage(imageID.source_url);
-                }
+                };
             };
         }
-        else if (aboutData.error) {
-            setAboutHeader(aboutData.error);
-            setAboutContent(aboutData.error);
-            setAboutImage(aboutData.error);
+        else if (aboutDataPage.error) {
+            setAboutHeader(aboutDataPage.error);
+            setAboutContent(aboutDataPage.error);
+            setAboutImage(aboutDataPage.error);
         }
         return () => isActive = false;
         // eslint-disable-next-line
-    }, [aboutData.response, aboutData.error, aboutDataImage.response]);
+    }, [aboutDataPage.response, aboutDataPage.error, aboutDataImage.response]);
 
     const imageRef = useRef(null);
     const cardRef = useRef(null);
@@ -106,10 +105,10 @@ const About = () => {
     return (
         <StyledAbout>
             <AboutContainer id="about">
-                <Image
+                {aboutDataImage.response && <Image
                     src={aboutImage}
                     alt="image of about section"
-                    ref={imageRef} />
+                    ref={imageRef} />}
                 <Card ref={cardRef}>
                     <Header>
                         {aboutHeader}
