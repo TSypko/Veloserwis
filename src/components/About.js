@@ -8,6 +8,7 @@ import { useLocalStorageState } from "../useLocalStorageState";
 const StyledAbout = styled.div`
     background: var(--secondaryDarken);
     box-shadow: inset 0px 10px 20px -5px rgba(0,0,0,0.75);
+    overflow: hidden;
 `;
 const AboutContainer = styled.div`
     margin: 0 auto;
@@ -17,7 +18,6 @@ const AboutContainer = styled.div`
     grid-gap: 80px;
     align-items: center;
     max-width: 1200px;
-    overflow: hidden;
     @media (max-width: 360px) {   
         padding: 20px;
     }
