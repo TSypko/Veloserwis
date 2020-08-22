@@ -10,6 +10,7 @@ margin: 0 auto;
 padding: 100px 70px;
 display: grid;
 grid-template-columns: 1fr 1fr;
+align-items: center;
 grid-gap: 80px;
 max-width: 1200px;
 @media (max-width: 768px)
@@ -20,9 +21,15 @@ max-width: 1200px;
     }
 `;
 
-export const MapContainer = styled.div`
-width: 100%;
+export const Image = styled.img`
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 100%;
+max-height: 100%;
+box-shadow: 0px 0px 5px 1px #999;
 `;
+
 export const ContactItems = styled.div`
 display: grid;
 grid-gap: 20px;
