@@ -17,12 +17,10 @@ import SocialInfo from "./components/SocialInfo";
 import BurgerButton from "./components/Burger";
 import MapElement from "./components/Map";
 
-
 function App() {
-  const [isOpened, setIsOpened] = useState(false);
-
+  
   const openMenu = () => {
-    setIsOpened(!isOpened);
+    setIsOpened(state => !state);
   };
 
   const [onScroll, setOnScroll] = useState(false);
@@ -34,6 +32,8 @@ function App() {
     } else { setOnScroll(false) }
   };
   window.onscroll = onScrollNavStyleChange;
+
+  const [isOpened, setIsOpened] = useState(false);
 
   return (
     <>
@@ -71,8 +71,7 @@ function App() {
           body={<MapElement />}
         />
       </Main>
-      <Footer>
-      
+      <Footer>    
         <Section
           body={<SocialInfo />}
         />
