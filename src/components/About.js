@@ -102,23 +102,22 @@ const About = () => {
     useShowOnScrollX(imageRef.current, "+=-100", imageRef.current, "top 90%");
     useShowOnScrollX(cardRef.current, "+=100", imageRef.current, "top 90%");
 
-    return (
-        <StyledAbout>
-            <AboutContainer id="about">
-                {aboutDataImage.response && <Image
-                    src={aboutImage}
-                    alt="image of about section"
-                    ref={imageRef} />}
-                <Card ref={cardRef}>
-                    <Header>
-                        {aboutHeader}
-                    </Header>
-                    <Content>
-                        {renderHTML(aboutContent)}
-                    </Content>
-                </Card>
-            </AboutContainer>
-        </StyledAbout>
+    return (<StyledAbout>
+        <AboutContainer id="about">
+            <Image
+                src={aboutImage}
+                alt="image of about section"
+                ref={imageRef} />
+            <Card ref={cardRef}>
+                <Header>
+                    {aboutHeader}
+                </Header>
+                <Content>
+                    {renderHTML(aboutContent)}
+                </Content>
+            </Card>
+        </AboutContainer>
+    </StyledAbout>
     );
 }
 

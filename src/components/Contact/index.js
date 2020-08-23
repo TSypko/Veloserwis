@@ -76,10 +76,10 @@ const Contact = () => {
                     <ContactItem image="📱" header="Telefon" text={phone} />
                     <ContactItem image="📅" header="Godziny otwarcia" text={hours} textContinous={hoursMore} />
                 </ContactItems>
-                {contactDataImage.response && <Image
+                <Image
                     src={contactImage}
                     alt="image contact section"
-                    ref={imageRef} />}
+                    ref={imageRef} />
             </ContactContainer>
         </StyledContact >
     );
